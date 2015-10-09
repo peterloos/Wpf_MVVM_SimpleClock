@@ -1,0 +1,19 @@
+﻿<Window x:Class="Wpf_MVVM_01_SimpleClock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:local="clr-namespace:Wpf_MVVM_01_SimpleClock"
+    Title="Date and Time with MVVM" Height="120" Width="400">
+    
+    <Window.Resources>
+        <local:ClockViewModel x:Key="MyClockViewModel"/>
+    </Window.Resources>
+
+    <StackPanel DataContext="{StaticResource MyClockViewModel}">
+        <TextBlock
+            Text="{Binding CurrentTime, StringFormat='Time: {0}'}"
+            Margin="10" FontFamily="Consolas" FontSize="18" Background="LightGray" />
+        <TextBlock
+            Text="{Binding CurrentDate, StringFormat='Date: {0}'}"
+            Margin="10" FontFamily="Consolas" FontSize="18" Background="LightGray" />
+    </StackPanel>
+</Window>
